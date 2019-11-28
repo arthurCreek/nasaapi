@@ -1,8 +1,20 @@
-.image__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+// .image__container {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+// }
+
+// .image__item {
+//     max-height: 30rem;
+// }
+
+.carousel {
+    max-width: 65rem;
+    margin: 6rem auto;
+    align-items: center;
+    background: black;
 }
 
-.image__item {
-    max-height: 30rem;
+.carousel .slide {
+    margin: auto 0;
 }
+

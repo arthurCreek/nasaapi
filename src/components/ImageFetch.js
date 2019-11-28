@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 
 const API_KEY = process.env.REACT_APP_NASA_API;
@@ -20,11 +22,13 @@ const ImageFetch = () => {
     }, []);
 
     return (
-        <div className="image__container">
-            {daily.map(url => (
-                <img src={url} alt="nasa rover" className="image__item"/>
+        <Carousel className="carousel">
+            {daily.map(image => (
+                <div>
+                    <img src={image} alt="mars"/>
+                </div>
             ))}
-        </div>
+        </Carousel>
     );
 };
 
