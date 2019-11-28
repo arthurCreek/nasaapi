@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState } from "react";
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
@@ -19,6 +19,12 @@ const Search = () => {
     const [currentRoverString, setRoverString] = useState('Curiosity');
 
 
+    const searchNasa = (e) => {
+        e.preventDefault();
+        console.log(time.format('YYYY-MM-DD'));
+        console.log(currentRoverString.toLowerCase());
+        console.log(currentRoverDates);
+    }
 
     function setRover(e) {
         switch (e.target.value) {
@@ -38,39 +44,41 @@ const Search = () => {
                 break;
         }
     };
-
-    useEffect(() => {
-        console.log(time);
-        console.log(focused);
-
-    }, [focused, time]);
     
     return (
         <div className="search">
             <div className="search__form">
-                <div className="search__form--container">
-                    <p>I'd like to see pictures from </p>
-                    <select onChange={setRover} defaultValue={'curiosity'}>
-                        <option value="curiosity">Curiosity</option>
-                        <option value="opportunity">Opportunity</option>
-                        <option value="spirit">Spirit</option>
-                    </select>
-                    
-                    <p> from this day: </p>
-                    <SingleDatePicker
-                        date={time} // momentPropTypes.momentObj or null
-                        onDateChange={date => setTime(date)} // PropTypes.func.isRequired
-                        focused={focused} // PropTypes.bool
-                        onFocusChange={({ focused }) => setFocused(focused)} // PropTypes.func.isRequired
-                        numberOfMonths={1}
-                        isOutsideRange={() => false}
-                        id="your_unique_id" // PropTypes.string.isRequired,
-                    />
-                </div>
+                <form onSubmit={searchNasa}>
+                    <div className="search__form--container">
+                        <p>I'd like to see pictures from </p>
+                        <select onChange={setRover} defaultValue={'curiosity'}>
+                            <option value="curiosity">Curiosity</option>
+                            <option value="opportunity">Opportunity</option>
+                            <option value="spirit">Spirit</option>
+                        </select>
+                        
+                        <p> on this day: </p>
+                        <SingleDatePicker
+                            date={time} // momentPropTypes.momentObj or null
+                            onDateChange={date => setTime(date)} // PropTypes.func.isRequired
+                            focused={focused} // PropTypes.bool
+                            onFocusChange={({ focused }) => setFocused(focused)} // PropTypes.func.isRequired
+                            numberOfMonths={1}
+                            isOutsideRange={() => false}
+                            id="your_unique_id" // PropTypes.string.isRequired,
+                        />
+                    </div>
 
-                <div className="search__form--date-hint">
-                    <p>Mission Range for {currentRoverString}: {currentRoverDates}</p>
-                </div>
+                    <div className="search__form--date-hint">
+                        <p>Mission Range for {currentRoverString}: {currentRoverDates}</p>
+                    </div>
+
+                    <div>
+                        <button>Search</button>
+                    </div>
+
+                </form>
+
             </div>
 
 

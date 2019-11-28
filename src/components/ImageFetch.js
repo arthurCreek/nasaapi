@@ -24,7 +24,7 @@ const ImageFetch = () => {
     return (
         <Carousel className="carousel">
             {daily.map(image => (
-                <div>
+                <div key={1}>
                     <img src={image} alt="mars"/>
                 </div>
             ))}
