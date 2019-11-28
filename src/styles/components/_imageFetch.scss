@@ -1,0 +1,8 @@
+.image__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.image__item {
+    max-height: 30rem;
+}
