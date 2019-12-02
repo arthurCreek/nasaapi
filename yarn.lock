@@ -8538,10 +8538,9 @@ react-portal@^4.2.0:
   dependencies:
     prop-types "^15.5.8"
 
-react-responsive-carousel@^3.1.51:
+"react-responsive-carousel@https://github.com/arthurCreek/react-responsive-carousel.git#master":
   version "3.1.51"
-  resolved "https://registry.yarnpkg.com/react-responsive-carousel/-/react-responsive-carousel-3.1.51.tgz#f1913530b32e8fe7b484c77051571800b4ab535f"
-  integrity sha512-hb74s8Cj9g3ppNxQeDwsIekTp2EOFO2MdmYXKIqjFS3oMHQE9Fg1lKn4j5tiIhAQAKQlNgy6hfqeS2aIO/Sicg==
+  resolved "https://github.com/arthurCreek/react-responsive-carousel.git#309bb2cc47efbc4f93812c3cc9a7ef5550d5305e"
   dependencies:
     classnames "^2.2.5"
     prop-types "^15.5.8"

@@ -10,7 +10,7 @@
     "react-dates": "^21.5.0",
     "react-dom": "^16.12.0",
     "react-particles-js": "^2.7.0",
-    "react-responsive-carousel": "^3.1.51",
+    "react-responsive-carousel": "https://github.com/arthurCreek/react-responsive-carousel.git#master",
     "react-scripts": "3.2.0"
   },
   "scripts": {
