@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import NasaContext from '../context/nasa-img-context';
 
 const now = moment();
 // eslint-disable-next-line
@@ -13,6 +14,8 @@ const opportunity_dates =  "01/05/2004 thru 06/10/2018";
 const spirit_dates =  "01/04/2004 thru 05/25/2011"; 
 
 const Search = () => {
+    const { dispatch } = useContext(NasaContext);
+
     const [time, setTime] = useState(now);
     const [focused, setFocused] = useState(false);
     const [currentRoverDates, setRoverDates] = useState(curiosity_dates);
@@ -21,9 +24,13 @@ const Search = () => {
 
     const searchNasa = (e) => {
         e.preventDefault();
-        console.log(time.format('YYYY-MM-DD'));
-        console.log(currentRoverString.toLowerCase());
-        console.log(currentRoverDates);
+        dispatch({
+            type: 'SEARCH',
+            data: {
+                date: time.format('YYYY-MM-DD'),
+                rover: currentRoverString.toLowerCase()
+            }
+        })
     }
 
     function setRover(e) {
@@ -48,7 +55,7 @@ const Search = () => {
     return (
         <div className="search">
             <div className="search__form">
-                <form onSubmit={searchNasa}>
+                <form>
                     <div className="search__form--container">
                         <p>I'd like to see pictures from </p>
                         <select onChange={setRover} defaultValue={'curiosity'}>
@@ -74,7 +81,7 @@ const Search = () => {
                     </div>
 
                     <div>
-                        <button>Search</button>
+                        <button onClick={searchNasa}>Search</button>
                     </div>
 
                 </form>
