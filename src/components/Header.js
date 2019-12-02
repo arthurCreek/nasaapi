@@ -57,7 +57,15 @@ const options = {
 const Header = () => {
 
     return (
-        <Particles params={options} className="header__particles"/>
+		<div>
+			<div className="header__text">
+				<div className="header__text--container">
+					<h1 className="header__h1">DISCOVER <span id="mars-text">MARS</span></h1>
+					<h2 className="header__h2">Through Curiosity, Opportunity, and Spirit</h2>
+				</div>
+			</div>
+        	<Particles params={options} className="header__particles"/>
+		</div>
     )
 }
 

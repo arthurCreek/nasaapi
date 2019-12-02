@@ -18,24 +18,31 @@ const ImageFetch = () => {
             const daily = Object.keys(data).map(index => data[index].img_src);
             setDaily(daily);
         });
-
-        
     }
     useEffect(() => {
         fetchNasaImages();
         // eslint-disable-next-line
     }, [ images ]);
 
+    if (daily.length > 0) {
+        return (
+            <Carousel className="carousel">
+                {daily.map(image => (
+                    <div key={1}>
+                        <img src={image} alt="mars"/>
+                    </div>
+                ))}
+            </Carousel>
+        );
+    } else {
+        return (
+            <div className="no-images">
+                <p>There are no pictures for {images.rover.charAt(0).toUpperCase() + images.rover.slice(1)} on {images.date}.</p>
+                <p>Please select another date withing Mission Range.</p>
+            </div>
+        )
+    }
 
-    return (
-        <Carousel className="carousel">
-            {daily.map(image => (
-                <div key={1}>
-                    <img src={image} alt="mars"/>
-                </div>
-            ))}
-        </Carousel>
-    );
 };
 
 export default ImageFetch;
