@@ -12,7 +12,7 @@ const ImageFetch = () => {
 
     const [daily, setDaily] = useState([]);
 
-    async function fetchData() {
+    async function fetchNasaImages() {
         axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${images.rover}/photos?earth_date=${images.date}&page=1&api_key=${API_KEY}`).then(res => {
             const data = res.data.photos;
             const daily = Object.keys(data).map(index => data[index].img_src);
@@ -21,9 +21,9 @@ const ImageFetch = () => {
 
         
     }
-
     useEffect(() => {
-        fetchData();
+        fetchNasaImages();
+        // eslint-disable-next-line
     }, [ images ]);
 
 
