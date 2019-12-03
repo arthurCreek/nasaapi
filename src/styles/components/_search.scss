@@ -11,22 +11,115 @@
     align-items: center;
     text-align: center;
 
+
+    @include respond(tab-land){
+        width:80rem;
+        height: 20rem;
+        margin: -10rem auto;
+    }
+
+    @include respond(tab-port){
+        width: 90vw;
+        height: 20rem;
+    }
+
+    @include respond(phone){
+        width: 95vw;
+        height: 26rem;
+        margin: -8rem auto;
+    }
+
 }
 
-// .search__form {
-//     padding: 12rem;
-// }
+.search__select {
+    width: 130px;
+    height: 48px;
+}
+
 
 .search__form--container {
     display: flex;
     flex-direction: row;
     position: relative;
-    margin: 4rem 0;
+    margin: 3rem 0;
     font-size: 3.2em;
+
+    &-box {
+        margin-top: 2rem;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    @include respond(tab-land){
+        font-size: 2em;
+        margin: .6rem 0;
+        
+    }
+
+    @include respond(tab-port){
+        font-size: 1.5em;
+        margin: 0;
+        font-weight: 600;
+    }
+    @include respond(phone){
+        flex-direction: column;
+    }
 }
 
 .search__form--date-hint{
     font-size: 2em;
-    font-weight: 600;
+    font-weight: 400;
+    
+    @include respond(tab-land){
+        font-size: 1.5em;
+        margin: 2rem 0;
+    }
 }
 
+.search__form--button {
+    margin-top: 2rem;
+
+    & > button {
+        padding: .7rem 3rem;
+        border-radius: 2em;
+        text-decoration: none;
+        background-color: $color-nasa-blue;
+        font-weight: 400;
+        cursor: pointer;
+        color: white;
+        font-family: 'Roboto-Slab';
+        font-size: 2.4em;
+        transition: all 0.2s;
+        outline: none;
+
+ 
+
+        @include respond(tab-land){
+            font-size: 2em;
+            margin-top: 1rem;
+        }
+
+        @include respond(tab-port){
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+
+        &:hover,
+        &:active {
+            background-color: $color-orange;
+            outline: none;
+        }
+        
+    }
+}
+
+#rover-name {
+    color: $color-orange;
+}
+
+// .DateIput_input {
+//     width: 100px;
+// }

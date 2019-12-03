@@ -9,7 +9,7 @@
 
 .carousel {
     max-width: 65rem;
-    margin: 6rem auto;
+    margin: 2rem auto 10rem auto;
     align-items: center;
     background: black;
 }
@@ -24,4 +24,20 @@
     align-items: center;
     margin: 6rem 0;
     font-size: 4rem;
+
+    @include respond(tab-land){
+        font-size: 2.5rem;
+        margin-top: 14rem;
+    }
+}
+
+.image__showing {
+    margin-top: 6rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 2em;
+
+    @include respond(tab-land){
+        margin-top: 12rem;
+    }
 }

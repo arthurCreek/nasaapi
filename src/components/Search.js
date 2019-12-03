@@ -57,30 +57,34 @@ const Search = () => {
             <div className="search__form">
                 <form>
                     <div className="search__form--container">
-                        <p>I'd like to see pictures from </p>
-                        <select onChange={setRover} defaultValue={'curiosity'}>
-                            <option value="curiosity">Curiosity</option>
-                            <option value="opportunity">Opportunity</option>
-                            <option value="spirit">Spirit</option>
-                        </select>
+                        <div className="search__form--container-box">
+                            <p>I'd like to see pictures from &nbsp;</p>
+                            <select onChange={setRover} defaultValue={'curiosity'} className="search__select">
+                                <option value="curiosity">Curiosity</option>
+                                <option value="opportunity">Opportunity</option>
+                                <option value="spirit">Spirit</option>
+                            </select>
+                        </div>
                         
-                        <p> on this day: </p>
-                        <SingleDatePicker
-                            date={time} // momentPropTypes.momentObj or null
-                            onDateChange={date => setTime(date)} // PropTypes.func.isRequired
-                            focused={focused} // PropTypes.bool
-                            onFocusChange={({ focused }) => setFocused(focused)} // PropTypes.func.isRequired
-                            numberOfMonths={1}
-                            isOutsideRange={() => false}
-                            id="your_unique_id" // PropTypes.string.isRequired,
-                        />
+                        <div className="search__form--container-box">
+                            <p>&nbsp; on this day:&nbsp;</p>
+                                <SingleDatePicker
+                                    date={time} // momentPropTypes.momentObj or null
+                                    onDateChange={date => setTime(date)} // PropTypes.func.isRequired
+                                    focused={focused} // PropTypes.bool
+                                    onFocusChange={({ focused }) => setFocused(focused)} // PropTypes.func.isRequired
+                                    numberOfMonths={1}
+                                    isOutsideRange={() => false}
+                                    id="your_unique_id" // PropTypes.string.isRequired,
+                                />
+                        </div>
                     </div>
 
                     <div className="search__form--date-hint">
-                        <p>Mission Range for {currentRoverString}: {currentRoverDates}</p>
+                        <p>Mission Range for <span id="rover-name">{currentRoverString}</span>: {currentRoverDates}</p>
                     </div>
 
-                    <div>
+                    <div className="search__form--button">
                         <button onClick={searchNasa}>Search</button>
                     </div>
 

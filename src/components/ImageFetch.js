@@ -26,19 +26,22 @@ const ImageFetch = () => {
 
     if (daily.length > 0) {
         return (
-            <Carousel className="carousel">
-                {daily.map(image => (
-                    <div key={1}>
-                        <img src={image} alt="mars"/>
-                    </div>
-                ))}
-            </Carousel>
+            <div>
+                <h3 className="image__showing">Showing: {images.date}</h3>
+                <Carousel className="carousel">
+                    {daily.map(image => (
+                        <div key={1}>
+                            <img src={image} alt="mars"/>
+                        </div>
+                    ))}
+                </Carousel>
+            </div>
         );
     } else {
         return (
             <div className="no-images">
                 <p>There are no pictures for {images.rover.charAt(0).toUpperCase() + images.rover.slice(1)} on {images.date}.</p>
-                <p>Please select another date withing Mission Range.</p>
+                <p>Please select another date within Mission Range.</p>
             </div>
         )
     }
