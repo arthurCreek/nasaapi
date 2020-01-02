@@ -4,14 +4,24 @@ import axios from "axios";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-
+/************************************
+**** API key from env *******
+*************************************/
 const API_KEY = process.env.REACT_APP_NASA_API;
 
+
+
+/************************************
+**** Retreive images from NASA api using axios and save with useContext *******
+*************************************/
 const ImageFetch = () => {
     const { images } = useContext(NasaContext);
 
     const [daily, setDaily] = useState([]);
 
+    {/* 
+        API call using axios that updates image variable
+    */}
     async function fetchNasaImages() {
         axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${images.rover}/photos?earth_date=${images.date}&page=1&api_key=${API_KEY}`).then(res => {
             const data = res.data.photos;
@@ -24,6 +34,9 @@ const ImageFetch = () => {
         // eslint-disable-next-line
     }, [ images ]);
 
+    {/* 
+        Return images, if there are no images, return information
+    */}
     if (daily.length > 0) {
         return (
             <div>

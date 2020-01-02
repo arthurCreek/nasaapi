@@ -14,6 +14,10 @@ const opportunity_dates =  "01/05/2004 thru 06/10/2018";
 const spirit_dates =  "01/04/2004 thru 05/25/2011"; 
 
 const Search = () => {
+
+    {/* 
+       Start up variables for images and search options
+    */}
     const { dispatch } = useContext(NasaContext);
 
     const [time, setTime] = useState(now);
@@ -56,6 +60,9 @@ const Search = () => {
         <div className="search">
             <div className="search__form">
                 <form>
+                    {/* 
+                        Form for picking the rover and the date with range recommendations
+                    */}
                     <div className="search__form--container">
                         <div className="search__form--container-box">
                             <p>I'd like to see pictures from &nbsp;</p>

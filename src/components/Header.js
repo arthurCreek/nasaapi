@@ -1,6 +1,9 @@
 import React from 'react';
 import Particles from 'react-particles-js';
 
+/************************************
+**** Options for particle elements in header *******
+*************************************/
 const options = {
 	    "particles": {
 	        "number": {
